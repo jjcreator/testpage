@@ -17,7 +17,11 @@ const useStyles = makeStyles({
     },
     submit: {
         marginLeft: "8px",
-        padding: "10px 25px"
+        padding: "10px 25px",
+        marginTop: "25px"
+    },
+    input: {
+        fontWeight: "500"
     }
 });
 
@@ -37,6 +41,9 @@ function Form() {
                 shrink: true,
             }}
             variant="outlined"
+            InputProps={{
+                className: classes.input
+            }}
         />
         <TextField
             id="outlined-full-width"
@@ -49,6 +56,9 @@ function Form() {
                 shrink: true,
             }}
             variant="outlined"
+            InputProps={{
+                className: classes.input
+            }}
         />
         <TextField
             id="outlined-full-width"
@@ -61,6 +71,9 @@ function Form() {
                 shrink: true,
             }}
             variant="outlined"
+            InputProps={{
+                className: classes.input
+            }}
         />
         <TextField
             id="outlined-full-width"
@@ -73,6 +86,9 @@ function Form() {
                 shrink: true,
             }}
             variant="outlined"
+            InputProps={{
+                className: classes.input
+            }}
         />
         <TextField
             id="outlined-full-width"
@@ -85,6 +101,9 @@ function Form() {
                 shrink: true,
             }}
             variant="outlined"
+            InputProps={{
+                className: classes.input
+            }}
         />
         <Button color="secondary" type="submit" variant="contained" className={classes.submit}>SAVE PROFILE</Button>
 

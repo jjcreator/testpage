@@ -41,7 +41,8 @@ const useStyles = makeStyles({
     flexGrow: 1,
     display: 'flex',
     height: "100%",
-    width: "100%"
+    width: "100%",
+    paddingLeft: "0"
   },
   tab: {
       width: "100%"
@@ -65,6 +66,10 @@ const useStyles = makeStyles({
   },
   textColor: {
     color: "green"
+  },
+  rootBase: {
+    paddingLeft: "0"
+
   }
 });
 
@@ -87,11 +92,11 @@ export default function VerticalTabs() {
         className={classes.tabs}
         textColor="secondary"
       >
-        <Tab color="primary" classes={{wrapper: classes.tabLabel}} label="PROFILE" {...a11yProps(0)} />
-        <Tab classes={{wrapper: classes.tabLabel}} label="ACCOUNT EDIT" {...a11yProps(1)} />
-        <Tab classes={{wrapper: classes.tabLabel}} label="BILLING" {...a11yProps(2)} />
-        <Tab classes={{wrapper: classes.tabLabel}} label="SETTINGS EDIT" {...a11yProps(3)} />
-        <Tab classes={{wrapper: classes.tabLabel}} label="SESSIONS" {...a11yProps(4)} />
+        <Tab color="primary" classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="PROFILE" {...a11yProps(0)} />
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="ACCOUNT EDIT" {...a11yProps(1)} />
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="BILLING" {...a11yProps(2)} />
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="SETTINGS EDIT" {...a11yProps(3)} />
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="SESSIONS" {...a11yProps(4)} />
       </Tabs>
       <TabPanel className={classes.tab} value={value} index={0}>
       <Container className={classes.container}>
