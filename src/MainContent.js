@@ -1,5 +1,5 @@
 import React from 'react';
-import TabPanel from "./TabPanel.js"
+import VerticalTabs from "./VerticalTabs.js"
 import LinearProgressWithLabel from "./LinearProgressWithLabel.js"
 import { Container, Button, Grid, Typography, Avatar, Chip } from "@material-ui/core";
 import image from "./face.png";
@@ -21,7 +21,7 @@ function MainContent() {
   const classes = useStyles();
   return (
       <Container className={classes.mainContainer}>
-        <Grid container direction='column' spacing={2}>
+        <Grid container direction='column' spacing={5}>
             <Grid item container direction="row" justify="space-between">
                 <Grid item container xl={6} lg={6} sm={12}>
                     <Grid item container direction="row" spacing={2}>
@@ -56,7 +56,7 @@ function MainContent() {
                 </Grid>
             </Grid>
             <Grid item>
-                <TabPanel></TabPanel>
+                <VerticalTabs/>
             </Grid>
             
         </Grid>

@@ -1,10 +1,10 @@
 import React from 'react';
+import Form from "./Form.js"
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { Tab, Box, Grid, Container } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -18,7 +18,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
+        <Box>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -42,13 +42,24 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    height: 224,
+    height: "100%",
+    width: "100%"
+  },
+  tab: {
+      width: "100%"
   },
   tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
+    paddingTop: "10px"
   },
+  container: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "0px"
+  }
 }));
 
 export default function VerticalTabs() {
@@ -75,20 +86,30 @@ export default function VerticalTabs() {
         <Tab label="SETTINGS EDIT" {...a11yProps(3)} />
         <Tab label="SESSIONS" {...a11yProps(4)} />
       </Tabs>
-      <TabPanel value={value} index={0}>
-        PROFILE
+      <TabPanel classes={{root: classes.tabRoot}} className={classes.tab} value={value} index={0}>
+      <Container className={classes.container}>
+        <Form/>
+      </Container> 
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel className={classes.tab} value={value} index={1}>
+      <Container className={classes.container}>
         ACCOUNT EDIT
+      </Container>
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel className={classes.tab} value={value} index={2}>
+      <Container className={classes.container}>
         BILLING
+      </Container>
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel className={classes.tab} value={value} index={3}>
+      <Container className={classes.container}>
         SETTINGS EDIT
+      </Container>
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      <TabPanel className={classes.tab} value={value} index={4}>
+      <Container className={classes.container}>
         SESSIONS
+      </Container>
       </TabPanel>
     </div>
   );
