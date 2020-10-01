@@ -1,7 +1,7 @@
 import React from 'react';
 import VerticalTabs from "./VerticalTabs.js"
 import LinearProgressWithLabel from "./LinearProgressWithLabel.js"
-import { Container, Button, Grid, Typography, Avatar, Chip } from "@material-ui/core";
+import { Container, Grid, Typography, Avatar, Chip } from "@material-ui/core";
 import image from "./face.png";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -14,16 +14,16 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#E8F4FE",
         color: theme.palette.secondary.main,
         fontWeight: "bold"
-    }
+    },
   }));
 
 function MainContent() {
   const classes = useStyles();
   return (
-      <Container className={classes.mainContainer}>
+      <Container maxWidth="md">
         <Grid container direction='column' spacing={5}>
             <Grid item container direction="row" justify="space-between" spacing={2}>
-                <Grid item container xl={6} lg={6} sm={12}>
+                <Grid item container xl={8} lg={8} sm={12}>
                     <Grid item container direction="row" spacing={2} xs={10}>
                         <Grid item>
                             <Avatar className={classes.avatar} alt="A guy" src={image}/>
