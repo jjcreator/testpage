@@ -20,12 +20,12 @@ export default function LinearProgressWithLabel(props) {
       </Grid>
       <Grid item container justify="space-between">
         <Grid item>
-            <Typography variant="caption text">Minutes used this billing cycle:</Typography>   
+            <Typography variant="caption">Minutes used this billing cycle:</Typography>   
         </Grid>
         <Grid item>
-            <Typography variant="caption text" color="textPrimary">{`${Math.round(
+            <Typography variant="caption" color="primary">{`${Math.round(
             props.value,
-            )}%`}
+            )* 20}`} / 2000
             </Typography>
         </Grid>
       </Grid>

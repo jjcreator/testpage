@@ -1,7 +1,7 @@
 import React from 'react';
 import TabPanel from "./TabPanel.js"
 import LinearProgressWithLabel from "./LinearProgressWithLabel.js"
-import { Container, Button, Grid, Typography, Avatar } from "@material-ui/core";
+import { Container, Button, Grid, Typography, Avatar, Chip } from "@material-ui/core";
 import image from "./face.png";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -10,8 +10,10 @@ const useStyles = makeStyles((theme) => ({
         width: theme.spacing(7),
         height: theme.spacing(7)
     },
-    button: {
-        color: "blue"
+    chip: {
+        backgroundColor: "#E8F4FE",
+        color: theme.palette.secondary.main,
+        fontWeight: "bold"
     }
   }));
 
@@ -21,19 +23,28 @@ function MainContent() {
       <Container className={classes.mainContainer}>
         <Grid container direction='column' spacing={2}>
             <Grid item container direction="row" justify="space-between">
-                <Grid item container xl={5} lg={5} sm={12}>
-                    <Grid item container direction="row">
-                        <Grid item xs={2}>
+                <Grid item container xl={6} lg={6} sm={12}>
+                    <Grid item container direction="row" spacing={2}>
+                        <Grid item>
                             <Avatar className={classes.avatar} alt="A guy" src={image}/>
                         </Grid>
                         <Grid xs={10} item container direction="column" alignItems="flex-start">
-                            <Grid item container alignItems="center">
-                                <Typography variant="h5">John Doe</Typography>
-                                <Button className={classes.button}>PRO</Button>
-                                <Typography variant="h5">Edit Profile</Typography>
+                            <Grid item container alignItems="center" spacing={1}>
+                                <Grid item>
+                                    <Typography variant="h6">John Doe</Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Chip size="small" label="PRO" color="secondary" className={classes.chip}/> 
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="h6" color="secondary">/</Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="h6">Edit Profile</Typography>
+                                </Grid>
                             </Grid>
                             <Grid item>
-                                <Typography color="secondary">Set up your VoipChurch presence</Typography>
+                                <Typography color="primary">Set up your VoipChurch presence</Typography>
                             </Grid>
                         </Grid>
                     </Grid>
