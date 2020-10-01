@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from "./MiniDrawer.js"
 import './App.css';
 import { Box, Button } from "@material-ui/core"
 import MiniDrawer from './MiniDrawer.js';
@@ -9,7 +8,6 @@ function App() {
     <div className="App">
       <Box>
         <MiniDrawer/>
-        {/* <MainContainer/> */}
       </Box>
     </div>
   );

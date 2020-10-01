@@ -13,9 +13,8 @@ import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import PlayForWorkSharpIcon from '@material-ui/icons/PlayForWorkSharp';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import { Button } from '@material-ui/core';
+import MainContent from './MainContent';
 
 const drawerWidth = 240;
 
@@ -81,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    paddingTop: "46px"
   },
   button: {
     textTransform: "none"
@@ -124,6 +124,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       <main className={classes.content}>
+        <MainContent/>
       </main>
     </div>
   );
