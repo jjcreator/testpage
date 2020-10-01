@@ -22,9 +22,9 @@ function MainContent() {
   return (
       <Container className={classes.mainContainer}>
         <Grid container direction='column' spacing={5}>
-            <Grid item container direction="row" justify="space-between">
+            <Grid item container direction="row" justify="space-between" spacing={2}>
                 <Grid item container xl={6} lg={6} sm={12}>
-                    <Grid item container direction="row" spacing={2}>
+                    <Grid item container direction="row" spacing={2} xs={10}>
                         <Grid item>
                             <Avatar className={classes.avatar} alt="A guy" src={image}/>
                         </Grid>

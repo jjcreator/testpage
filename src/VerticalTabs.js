@@ -3,8 +3,7 @@ import Form from "./Form.js"
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
-import { Tab, Box, Grid, Container } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import { Tab, Box, Container } from '@material-ui/core';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -18,9 +17,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box>
-          <Typography>{children}</Typography>
-        </Box>
+          <Box>{children}</Box>
       )}
     </div>
   );
@@ -39,7 +36,7 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     display: 'flex',
@@ -50,7 +47,13 @@ const useStyles = makeStyles((theme) => ({
       width: "100%"
   },
   tabs: {
-    paddingTop: "10px"
+    paddingTop: "10px",
+    minWidth: "200px"
+  },
+  tabLabel: {
+    display: "flex",
+    justifyContent: "flex-start",
+    flexDirection: "row"
   },
   container: {
     width: "100%",
@@ -59,8 +62,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     padding: "0px"
+  },
+  textColor: {
+    color: "green"
   }
-}));
+});
 
 export default function VerticalTabs() {
   const classes = useStyles();
@@ -79,14 +85,15 @@ export default function VerticalTabs() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         className={classes.tabs}
+        textColor="secondary"
       >
-        <Tab label="PROFILE" {...a11yProps(0)} />
-        <Tab label="ACCOUNT EDIT" {...a11yProps(1)} />
-        <Tab label="BILLING" {...a11yProps(2)} />
-        <Tab label="SETTINGS EDIT" {...a11yProps(3)} />
-        <Tab label="SESSIONS" {...a11yProps(4)} />
+        <Tab color="primary" classes={{wrapper: classes.tabLabel}} label="PROFILE" {...a11yProps(0)} />
+        <Tab classes={{wrapper: classes.tabLabel}} label="ACCOUNT EDIT" {...a11yProps(1)} />
+        <Tab classes={{wrapper: classes.tabLabel}} label="BILLING" {...a11yProps(2)} />
+        <Tab classes={{wrapper: classes.tabLabel}} label="SETTINGS EDIT" {...a11yProps(3)} />
+        <Tab classes={{wrapper: classes.tabLabel}} label="SESSIONS" {...a11yProps(4)} />
       </Tabs>
-      <TabPanel classes={{root: classes.tabRoot}} className={classes.tab} value={value} index={0}>
+      <TabPanel className={classes.tab} value={value} index={0}>
       <Container className={classes.container}>
         <Form/>
       </Container> 

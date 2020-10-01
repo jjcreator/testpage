@@ -9,6 +9,10 @@ const useStyles = makeStyles({
     root: {
       width: '100%',
     },
+    minuteCount: {
+        fontWeight: "700",
+        color: "#202020"
+    }
   });
 
 export default function LinearProgressWithLabel(props) {
@@ -23,7 +27,7 @@ export default function LinearProgressWithLabel(props) {
             <Typography variant="caption">Minutes used this billing cycle:</Typography>   
         </Grid>
         <Grid item>
-            <Typography variant="caption" color="primary">{`${Math.round(
+            <Typography className={classes.minuteCount} variant="caption" color="primary">{`${Math.round(
             props.value,
             )* 20}`} / 2000
             </Typography>

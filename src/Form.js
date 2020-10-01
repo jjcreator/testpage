@@ -11,10 +11,15 @@ const useStyles = makeStyles({
       flexDirection: "column",
       width: "100%",
       justifyContent: "center",
-      alignItems: "center",
-      padding: "100px 200px"
+      alignItems: "flex-start",
+      padding: "10% 20%",
+      position: "relative"
+    },
+    submit: {
+        marginLeft: "8px",
+        padding: "10px 25px"
     }
-  });
+});
 
 
 function Form() {
@@ -59,11 +64,11 @@ function Form() {
         />
         <TextField
             id="outlined-full-width"
-            label="First name"
+            label="Mobile phone"
             style={{margin: 8}}
             placeholder="Mobile phone"
             fullWidth
-            margin="Mobile phone number"
+            margin="normal"
             InputLabelProps={{
                 shrink: true,
             }}
@@ -75,12 +80,13 @@ function Form() {
             style={{margin: 8}}
             placeholder="Country of residence"
             fullWidth
-            margin="normal"
+            
             InputLabelProps={{
                 shrink: true,
             }}
             variant="outlined"
         />
+        <Button color="secondary" type="submit" variant="contained" className={classes.submit}>SAVE PROFILE</Button>
 
     </form>
   );
