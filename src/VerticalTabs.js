@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from "./Form.js"
+import Billing from "./Billing.js"
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -64,21 +65,33 @@ const useStyles = makeStyles({
     alignItems: "center",
     padding: "0px"
   },
-  textColor: {
-    color: "green"
-  },
   rootBase: {
     paddingLeft: "0"
 
   }
 });
 
-export default function VerticalTabs() {
+export default function VerticalTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const lowerTexts = {
+    "Profile": "Set up your VoipChurch presence",
+    "Billing": "Manage billing information and view receipts",
+    "Settings Edit": "Edit your settings",
+    "Account Edit": "Update your account information",
+    "Sessions": "Your sessions logs"
+  }
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    let label = event.target.textContent;
+    if(label == "PROFILE") {
+      props.displayBar({renderBar: true});
+    }
+    else props.displayBar({renderBar: false});
+    console.log(label)
+    props.updateTopPanel({adress: label, lowerText: lowerTexts[label]})
   };
 
   return (
@@ -92,11 +105,11 @@ export default function VerticalTabs() {
         className={classes.tabs}
         textColor="secondary"
       >
-        <Tab color="primary" classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="PROFILE" {...a11yProps(0)} />
-        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="ACCOUNT EDIT" {...a11yProps(1)} />
-        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="BILLING" {...a11yProps(2)} />
-        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="SETTINGS EDIT" {...a11yProps(3)} />
-        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="SESSIONS" {...a11yProps(4)} />
+        <Tab color="primary" classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="Profile" {...a11yProps(0)} />
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="Account Edit" {...a11yProps(1)}></Tab>
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="Billing" {...a11yProps(2)} />
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="Settings Edit" {...a11yProps(3)} />
+        <Tab classes={{wrapper: classes.tabLabel, root: classes.rootBase}} label="Sessions" {...a11yProps(4)} />
       </Tabs>
       <TabPanel className={classes.tab} value={value} index={0}>
       <Container className={classes.container}>
@@ -110,7 +123,7 @@ export default function VerticalTabs() {
       </TabPanel>
       <TabPanel className={classes.tab} value={value} index={2}>
       <Container className={classes.container}>
-        BILLING
+        <Billing/>
       </Container>
       </TabPanel>
       <TabPanel className={classes.tab} value={value} index={3}>
