@@ -1,10 +1,10 @@
 import React from 'react';
 import BillingCard from "./BillingCard.js"
 
-export default function Billing() {
+export default function Billing(props) {
   return (
     <>
-      <BillingCard/>
+      <BillingCard chipStyle={props.chipStyle}/>
       {/* <PaymentHistory/> */}
     </>
   );

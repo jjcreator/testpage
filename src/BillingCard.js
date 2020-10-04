@@ -5,10 +5,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import LinearProgressWithLabel from "./LinearProgressWithLabel.js"
+import { Box, Chip, Divider } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    width: "100%"
+    width: "100%",
+    padding: "5% 20%"
   },
   bullet: {
     display: 'inline-block',
@@ -21,32 +24,42 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  box: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "10px 0px"
+  },
+  divider: {
+    margin: "20px 0px"
+  }
 });
 
-export default function SimpleCard() {
+export default function SimpleCard(props) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+      <Box className={classes.box}>
+        <Typography>Your plan</Typography>
+        <Chip size="small" label="PRO" color="secondary" className={props.chipStyle}/>
+      </Box>
+        <LinearProgressWithLabel value={40} />
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button variant="outlined" size="medium">CHANGE</Button>
+        <Button size="medium">CANCEL SUBSCRIPTION</Button>
+      </CardActions>
+      <Divider className={classes.divider}/>
+      <CardContent>
+        <Box className={classes.box}><Typography>Payment</Typography></Box>
+        <Typography>You can use a Credit Card or a Bank Account</Typography>
+        <Typography>Payment Method On File</Typography>
+        <Typography>Visa ending in 0218 expiring 4/2020</Typography>
+      </CardContent>
+      <CardActions>
+        <Button variant="outlined" size="medium">EDIT</Button>
+        <Button size="medium">REMOVE</Button>
       </CardActions>
     </Card>
   );

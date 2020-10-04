@@ -86,11 +86,10 @@ export default function VerticalTabs(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
     let label = event.target.textContent;
-    if(label == "PROFILE") {
+    if(label == "Profile") {
       props.displayBar({renderBar: true});
     }
     else props.displayBar({renderBar: false});
-    console.log(label)
     props.updateTopPanel({adress: label, lowerText: lowerTexts[label]})
   };
 
@@ -123,7 +122,7 @@ export default function VerticalTabs(props) {
       </TabPanel>
       <TabPanel className={classes.tab} value={value} index={2}>
       <Container className={classes.container}>
-        <Billing/>
+        <Billing chipStyle={props.chipStyle}/>
       </Container>
       </TabPanel>
       <TabPanel className={classes.tab} value={value} index={3}>

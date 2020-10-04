@@ -63,7 +63,7 @@ function MainContent() {
                 </Grid>
             </Grid>
             <Grid item>
-                <VerticalTabs updateTopPanel={updateTopPanel} displayBar={displayBar}/>
+                <VerticalTabs chipStyle={classes.chip} updateTopPanel={updateTopPanel} displayBar={displayBar}/>
             </Grid>
             
         </Grid>
