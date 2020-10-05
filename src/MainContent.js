@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.secondary.main,
         fontWeight: "bold"
     },
+    mainContent: {
+        paddingBottom: "50px"
+    }
   }));
 
 function MainContent() {
@@ -30,7 +33,7 @@ function MainContent() {
 
   const classes = useStyles();
   return (
-      <Container maxWidth="md">
+      <Container className={classes.mainContent} maxWidth="md">
         <Grid container direction='column' spacing={5}>
             <Grid item container direction="row" justify="space-between" spacing={2}>
                 <Grid item container xl={8} lg={8} sm={12}>
@@ -41,17 +44,17 @@ function MainContent() {
                         <Grid xs={10} item container direction="column" alignItems="flex-start">
                             <Breadcrumbs aria-label="breadcrumb">
                                 <Link color="inherit" href="/">
-                                    <Typography variant="h6">John Doe</Typography>
+                                    <Typography color="textPrimary" variant="h6">John Doe</Typography>
                                 </Link>
                                 <Link color="inherit" href="#">
                                     <Chip size="small" label="PRO" color="secondary" className={classes.chip}/>
                                 </Link>
                                 <Link color="inherit" href="#">
-                                    <Typography variant="h6">{topPanelText.adress || "Edit profile"}</Typography>
+                                    <Typography variant="h6" color="textPrimary">{topPanelText.adress || "Edit profile"}</Typography>
                                 </Link>        
                             </Breadcrumbs>
                             <Grid item>
-                                <Typography color="primary">{topPanelText.lowerText || "Set up your VoipChurch presence"}</Typography>
+                                <Typography color="textSecondary">{topPanelText.lowerText || "Set up your VoipChurch presence"}</Typography>
                             </Grid>
                         </Grid>
                     </Grid>

@@ -11,7 +11,13 @@ import { Box, Chip, Divider } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    padding: "5% 20%"
+    padding: "6% 20%",
+    marginBottom: 40
+  },
+  cardContent: {
+    paddingTop: "0",
+    paddingLeft: "8px",
+    paddingRight: 8
   },
   bullet: {
     display: 'inline-block',
@@ -27,21 +33,29 @@ const useStyles = makeStyles({
   box: {
     display: "flex",
     justifyContent: "space-between",
-    padding: "10px 0px"
+    padding: "10px 0px",
+    flexWrap: "wrap"
   },
   divider: {
-    margin: "20px 0px"
-  }
+    margin: "30px 8px",
+  },
+  normalWeight: {
+    fontWeight: "500"
+  },
+  fullWidth: {
+    flexBasis: "100%",
+    textAlign: "left"
+  },
 });
 
 export default function SimpleCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardContent>
+    <Card variant="outlined" className={classes.root}>
+      <CardContent classes={{root: classes.cardContent}}>
       <Box className={classes.box}>
-        <Typography>Your plan</Typography>
+        <Typography className={classes.normalWeight} variant="subtitle1">Your Plan</Typography>
         <Chip size="small" label="PRO" color="secondary" className={props.chipStyle}/>
       </Box>
         <LinearProgressWithLabel value={40} />
@@ -51,11 +65,15 @@ export default function SimpleCard(props) {
         <Button size="medium">CANCEL SUBSCRIPTION</Button>
       </CardActions>
       <Divider className={classes.divider}/>
-      <CardContent>
-        <Box className={classes.box}><Typography>Payment</Typography></Box>
-        <Typography>You can use a Credit Card or a Bank Account</Typography>
-        <Typography>Payment Method On File</Typography>
-        <Typography>Visa ending in 0218 expiring 4/2020</Typography>
+      <CardContent classes={{root: classes.cardContent}}>
+        <Box className={classes.box}>
+          <Typography className={`${classes.normalWeight} ${classes.fullWidth}`} variant="subtitle1">Payment</Typography>
+          <Typography color="textSecondary" className={`${classes.normalWeight} ${classes.fullWidth}`} variant="body2">You can use a Credit Card or a Bank Account</Typography>
+        </Box>
+        <Box className={classes.box}>
+          <Typography color="textSecondary" variant="caption" className={`${classes.normalWeight} ${classes.fullWidth}`}>Payment Method On File</Typography>
+          <Typography variant="subtitle1" className={classes.normalWeight}>Visa ending in 0218 expiring 4/2020</Typography>
+        </Box>
       </CardContent>
       <CardActions>
         <Button variant="outlined" size="medium">EDIT</Button>
