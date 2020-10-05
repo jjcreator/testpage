@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import { Box, Button, TextField, FormControl, InputLabel, Select, MenuItem, Card, Typography, Divider} from "@material-ui/core";
@@ -48,10 +48,12 @@ export default function CardDetails(props) {
   const classes = useStyles();
   const [date, setDate] = React.useState({});
 
-  const handleChange = (event) => {
-    // setDate({event.target.name : event.target.value})
-    console.log(event)
-  };
+  useEffect(()=> {props.cardLinkToggle(true);
+    console.log("yoyo")
+    return () => {
+    props.cardLinkToggle(false);
+  }}, []);
+
   return (
     <Card variant="outlined" className={classes.details}>
         <form className={classes.form}>

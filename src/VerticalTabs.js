@@ -91,7 +91,7 @@ export default function VerticalTabs(props) {
       props.displayBar({renderBar: true});
     }
     else props.displayBar({renderBar: false});
-    props.updateTopPanel({adress: label, lowerText: lowerTexts[label]})
+    props.updateTopPanel({address: label, lowerText: lowerTexts[label]})
   };
 
   return (
@@ -123,7 +123,7 @@ export default function VerticalTabs(props) {
       </TabPanel>
       <TabPanel className={classes.tab} value={value} index={2}>
       <Container className={classes.container}>
-        <Billing chipStyle={props.chipStyle}/>
+        <Billing cardLinkToggle={props.cardLinkToggle} chipStyle={props.chipStyle}/>
       </Container>
       </TabPanel>
       <TabPanel className={classes.tab} value={value} index={3}>

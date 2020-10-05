@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import BillingCard from "./BillingCard.js";
 import PaymentHistory from "./PaymentHistory.js"
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,13 +8,13 @@ const useStyles = makeStyles({
   billing: {
     width: "100%"
   }
-})
+});
 
 export default function Billing(props) {
   const classes = useStyles();
   const [cardDetailsVisible, setCardDetailsVisible] = useState(false);
   const showCard = () => {
-    setCardDetailsVisible(true)
+    setCardDetailsVisible(!cardDetailsVisible);
   }
   return (
     <div className={classes.billing}>
@@ -23,7 +23,7 @@ export default function Billing(props) {
         <BillingCard showCard={showCard} chipStyle={props.chipStyle}/>
         <PaymentHistory/>
       </>)
-      : (<CardDetails/>)
+      : (<CardDetails cardLinkToggle={props.cardLinkToggle}/>)
     }
     </div>
   );
