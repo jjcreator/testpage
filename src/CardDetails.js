@@ -19,6 +19,7 @@ const useStyles = makeStyles({
       alignItems: "center",
       width: "100%",
       justifyContent: "space-between",
+      marginTop: 16
   },
   formGroupItem: {
       flexBasis: "33%",
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
       width: "100%",
       justifyContent: "flex-start",
       alignItems: "center",
-      marginTop: "16px"
+      marginTop: 32
   },
   formButton: {
       padding: "10px 25px"
@@ -58,7 +59,7 @@ export default function CardDetails(props) {
             <Typography align="left" color="textSecondary" variant="body2">Choose how you want to pay, you have a choice of Credit / Debit Card or Bank Account</Typography>
             <TextField
                 label="Account Holder"
-                style={{margin: "16px 0px"}}
+                style={{marginTop: 32}}
                 placeholder="Account holder name"
                 fullWidth
                 InputLabelProps={{
@@ -70,7 +71,7 @@ export default function CardDetails(props) {
             />
             <TextField
                 label="Credit card"
-                style={{margin: "16px 0px"}}
+                style={{marginTop: 16}}
                 placeholder="Credit card number"
                 fullWidth
                 InputLabelProps={{
@@ -92,6 +93,7 @@ export default function CardDetails(props) {
                         labelId="monthLabel"
                         id="monthLabel"
                         style={{marginRight: 8}}
+                        label="Month"
                     >
                         <MenuItem value="January">January</MenuItem>
                         <MenuItem value="February">February</MenuItem>
@@ -113,6 +115,7 @@ export default function CardDetails(props) {
                         labelId="yearLabel"
                         id="yearLabel"
                         variant="outlined"
+                        label="Month"
                         style={{marginRight: 8}}
                     >
                         <MenuItem value="January">January</MenuItem>
@@ -149,10 +152,10 @@ export default function CardDetails(props) {
                 />
             </Box>
             <Divider className={classes.divider}/>
-            <Typography align="left" className={classes.normalWeight} variant="subtitle1">Adress</Typography>
+            <Typography align="left" className={classes.normalWeight} variant="subtitle1">Address</Typography>
             <Typography align="left" color="textSecondary" variant="body2">Use a permanent address where you can receive confirmation</Typography>
             <TextField
-                style={{margin: "16px 0px"}}
+                style={{marginTop: 32}}
                 placeholder="Street address"
                 fullWidth
                 InputLabelProps={{
@@ -163,7 +166,7 @@ export default function CardDetails(props) {
                 }}
             />
             <TextField
-                style={{margin: "16px 0px"}}
+                style={{marginTop: 16}}
                 placeholder="City"
                 fullWidth
                 InputLabelProps={{
@@ -174,7 +177,7 @@ export default function CardDetails(props) {
                 }}
             />
             <TextField
-                style={{margin: "16px 0px"}}
+                style={{marginTop: 16}}
                 placeholder="State"
                 fullWidth
                 InputLabelProps={{
@@ -200,6 +203,7 @@ export default function CardDetails(props) {
                     <Select
                         labelId="countryLabel"
                         id="ycountryLabel"
+                        label="Country"
                     >
                         <MenuItem value="January">United States</MenuItem>
                         <MenuItem value="Poland">Poland</MenuItem>
