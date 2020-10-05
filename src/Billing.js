@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import BillingCard from "./BillingCard.js";
 import PaymentHistory from "./PaymentHistory.js"
 import { makeStyles } from '@material-ui/core/styles';
