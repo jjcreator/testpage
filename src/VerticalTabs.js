@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Form from "./Form.js"
 import Billing from "./Billing.js"
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
-import { Tab, Box, Container } from '@material-ui/core';
+import { Tab, Box, Container, Hidden } from '@material-ui/core';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,7 +67,9 @@ const useStyles = makeStyles({
   },
   rootBase: {
     paddingLeft: "0"
-
+  },
+  hidden: {
+    display: "none"
   }
 });
 
@@ -81,7 +83,6 @@ export default function VerticalTabs(props) {
     "Account Edit": "Update your account information",
     "Sessions": "Your sessions logs"
   }
-
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

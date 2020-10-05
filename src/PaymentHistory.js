@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Box, Table, TableHead, TableBody, TableCell, TableRow, TablePagination} from '@material-ui/core';
+import { Box, Table, TableHead, TableBody, TableCell, TableRow, TableFooter, TablePagination} from '@material-ui/core';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -47,11 +47,6 @@ const useStyles = makeStyles((theme)=> ({
   },
   normalWeight: {
     fontWeight: "500"
-  },
-  paginationBox: {
-      width: "100%",
-      display: "flex",
-      justifyContent: "flex-end"
   },
   pagination: {
       border: "none"
@@ -119,56 +114,59 @@ export default function PaymentHistory(props) {
             </Box>
         </Box>
         <Table className={classes.table} size="small" aria-label="a dense table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell></TableCell>
-                            <TableCell>Date</TableCell>
-                            <TableCell align="left">Amount</TableCell>
-                            <TableCell align="left">Plan</TableCell>
-                            <TableCell align="left">Payment Method</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {(rowsPerPage > 0
-                            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            : rows
-                            )
-                            .map(row => (
-                            <TableRow selected={row.ticked? false: true} classes={{selected: classes.selected, hover: classes.selected}} key={rows.indexOf(row)}>
-                                <TableCell component="th" scope="row" align="center">
-                                    <Box className={classes.flex}>
-                                        {row.ticked? <CheckIcon className={classes.green}/> : <ClearIcon className={classes.red}/>}
-                                    </Box> 
-                                </TableCell>
-                                <TableCell align="left" className={classes.greyText}>{row.date}</TableCell>
-                                <TableCell align="left" className={row.ticked? "": classes.greyText}>{row.amount}</TableCell>
-                                <TableCell align="left">{renderChips(row.plan)}</TableCell>
-                                <TableCell align="left" className={row.ticked? "": classes.greyText}>{row.paymentMethod}</TableCell>
-                            </TableRow>
-                        ))}
-                        {emptyRows > 0 && (
-                            <TableRow style={{ height: 53 * emptyRows }}>
-                                <TableCell colSpan={6} />
-                            </TableRow>
-                        )}
-                    </TableBody>
-                </Table>
-                <Box className={classes.paginationBox}>
+            <TableHead>
+                <TableRow>
+                    <TableCell></TableCell>
+                    <TableCell>Date</TableCell>
+                    <TableCell align="left">Amount</TableCell>
+                    <TableCell align="left">Plan</TableCell>
+                    <TableCell align="left">Payment Method</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                {(rowsPerPage > 0
+                    ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    : rows
+                    )
+                    .map(row => (
+                    <TableRow selected={row.ticked? false: true} classes={{selected: classes.selected, hover: classes.selected}} key={rows.indexOf(row)}>
+                        <TableCell component="th" scope="row" align="center">
+                            <Box className={classes.flex}>
+                                {row.ticked? <CheckIcon className={classes.green}/> : <ClearIcon className={classes.red}/>}
+                            </Box> 
+                        </TableCell>
+                        <TableCell align="left" className={classes.greyText}>{row.date}</TableCell>
+                        <TableCell align="left" className={row.ticked? "": classes.greyText}>{row.amount}</TableCell>
+                        <TableCell align="left">{renderChips(row.plan)}</TableCell>
+                        <TableCell align="left" className={row.ticked? "": classes.greyText}>{row.paymentMethod}</TableCell>
+                    </TableRow>
+                ))}
+                {emptyRows > 0 && (
+                    <TableRow style={{ height: 53 * emptyRows }}>
+                        <TableCell colSpan={6} />
+                    </TableRow>
+                )}
+            </TableBody>
+            <TableFooter>
+                <TableRow>
                     <TablePagination
-                        className={classes.pagination}
-                        rowsPerPageOptions={[5, 10, 15, { label: 'All', value: -1 }]}
-                        colSpan={3}
-                        count={rows.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        SelectProps={{
-                            inputProps: { 'aria-label': 'rows per page' },
-                            native: true,
-                        }}
-                        onChangePage={handleChangePage}
-                        onChangeRowsPerPage={handleChangeRowsPerPage}
-                        />
-                </Box>
+                    className={classes.pagination}
+                    rowsPerPageOptions={[5, 10, 15, { label: 'All', value: -1 }]}
+                    colSpan={5}
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    SelectProps={{
+                        inputProps: { 'aria-label': 'rows per page' },
+                        native: true,
+                    }}
+                    onChangePage={handleChangePage}
+                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                    />
+                </TableRow>
+            </TableFooter>
+        </Table>
+        
       </CardContent>
     </Card>
   );

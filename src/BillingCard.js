@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -50,7 +50,7 @@ const useStyles = makeStyles({
 
 export default function SimpleCard(props) {
   const classes = useStyles();
-
+  
   return (
     <Card variant="outlined" className={classes.root}>
       <CardContent classes={{root: classes.cardContent}}>
@@ -76,9 +76,9 @@ export default function SimpleCard(props) {
         </Box>
       </CardContent>
       <CardActions>
-        <Button variant="outlined" size="medium">EDIT</Button>
-        <Button size="medium">REMOVE</Button>
+        <Button variant="outlined" size="medium" onClick={props.showCard}>EDIT</Button>
+        <Button size="medium" >REMOVE</Button>
       </CardActions>
-    </Card>
+    </Card> 
   );
 }
