@@ -80,7 +80,7 @@ export default function VerticalTabs(props) {
   const theme = useTheme();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const mediaSm = useMediaQuery(theme.breakpoints.up("sm"));
+  const mediaSm = useMediaQuery(theme.breakpoints.up("md"));
   const lowerTexts = {
     "Profile": "Set up your VoipChurch presence",
     "Billing": "Manage billing information and view receipts",
