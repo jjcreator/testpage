@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import { Box, Button, TextField, FormControl, InputLabel, Select, MenuItem, Card, Typography, Divider} from "@material-ui/core";
@@ -46,11 +46,6 @@ const useStyles = makeStyles({
 
 export default function CardDetails(props) {
   const classes = useStyles();
-
-  useEffect(()=> {props.cardLinkToggle(true);
-    return () => {
-    props.cardLinkToggle(false);
-  }}, [props.cardLinkToggle]);
 
   return (
     <Card variant="outlined" className={classes.details}>

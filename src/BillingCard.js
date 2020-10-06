@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import LinearProgressWithLabel from "./LinearProgressWithLabel.js"
 import { Box, Chip, Divider } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -76,7 +77,7 @@ export default function SimpleCard(props) {
         </Box>
       </CardContent>
       <CardActions>
-        <Button variant="outlined" size="medium" onClick={props.showCard}>EDIT</Button>
+        <Button variant="outlined" size="medium" component={ Link } to="/billing/card">EDIT</Button>
         <Button size="medium" >REMOVE</Button>
       </CardActions>
     </Card> 

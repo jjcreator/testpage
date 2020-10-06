@@ -15,11 +15,15 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import PlayForWorkSharpIcon from '@material-ui/icons/PlayForWorkSharp';
 import { Button } from '@material-ui/core';
 import MainContent from './MainContent';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
-const icons = [
+const ICONS = [
   <DashboardIcon/>, <PeopleIcon/>, <FolderOpenIcon/>, <CalendarTodayIcon/>, <FileCopyIcon/>, <PlayForWorkSharpIcon/>, null, null
+]
+const LINKS = [
+  "/profile", "/profile", "/profile", "/profile", "/profile", "/profile", "/billing",
 ]
 
 const useStyles = makeStyles((theme) => ({
@@ -116,8 +120,8 @@ export default function MiniDrawer() {
         </div>
         <List>
           {['Dashboard', 'People', 'Projects', 'Calendar', 'Documents', 'Profile', 'Profile Edit', 'Billing'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{icons[index]}</ListItemIcon>
+            <ListItem button key={text} component = { Link } to={"./billing"}>
+              <ListItemIcon>{ICONS[index]}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
