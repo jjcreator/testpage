@@ -12,7 +12,6 @@ import MyChip from './MyChip.js';
 const useStyles = makeStyles((theme)=> ({
   root: {
     width: "100%",
-    padding: "10% 20%",
     padding: 0
   },
   cardContent: {

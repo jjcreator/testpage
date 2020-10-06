@@ -92,7 +92,7 @@ export default function VerticalTabs(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
     let label = event.target.textContent;
-    if(label == "Profile") {
+    if(label === "Profile") {
       props.displayBar({renderBar: true});
     }
     else props.displayBar({renderBar: false});

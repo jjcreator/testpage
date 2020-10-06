@@ -46,12 +46,11 @@ const useStyles = makeStyles({
 
 export default function CardDetails(props) {
   const classes = useStyles();
-  const [date, setDate] = React.useState({});
 
   useEffect(()=> {props.cardLinkToggle(true);
     return () => {
     props.cardLinkToggle(false);
-  }}, []);
+  }}, [props.cardLinkToggle]);
 
   return (
     <Card variant="outlined" className={classes.details}>
@@ -95,6 +94,7 @@ export default function CardDetails(props) {
                         id="monthLabel"
                         style={{marginRight: 8}}
                         label="Month"
+                        value=""
                     >
                         <MenuItem value="January">January</MenuItem>
                         <MenuItem value="February">February</MenuItem>
@@ -118,6 +118,7 @@ export default function CardDetails(props) {
                         variant="outlined"
                         label="Month"
                         style={{marginRight: 8}}
+                        value=""
                     >
                         <MenuItem value="January">January</MenuItem>
                         <MenuItem value="February">February</MenuItem>
@@ -205,10 +206,11 @@ export default function CardDetails(props) {
                         labelId="countryLabel"
                         id="ycountryLabel"
                         label="Country"
+                        value=""
                     >
-                        <MenuItem value="January">United States</MenuItem>
+                        <MenuItem value="United States">United States</MenuItem>
                         <MenuItem value="Poland">Poland</MenuItem>
-                        <MenuItem value="joke">San Escobar</MenuItem>
+                        <MenuItem value="San Escobar">San Escobar</MenuItem>
                     </Select>
                 </FormControl>
             </Box>

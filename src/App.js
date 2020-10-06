@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Box, Button } from "@material-ui/core"
+import { Box } from "@material-ui/core"
 import MiniDrawer from './MiniDrawer.js';
 
 function App() {
