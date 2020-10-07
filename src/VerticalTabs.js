@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link, Redirect, useLocation, useHistory, useRouteMatch } from 'react-router-dom'
+import { Switch, Route, Link, Redirect } from 'react-router-dom'
 import Form from "./Form.js"
 import Billing from "./Billing.js"
 import PropTypes from 'prop-types';
@@ -93,7 +93,6 @@ export default function VerticalTabs(props) {
   }
 
   const handleChange = (event, newValue) => {
-    console.log(newValue)
     setValue(newValue);
     let label = event.target.textContent;
     if(label === "Profile") {
